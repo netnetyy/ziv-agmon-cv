@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ziv Agmon — Attorney &amp; Senior Government Official</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #FFFFFF;
+      --card:     #F8FAFC;
+      --card2:    #EAF0F8;
+      --text:     #0F172A;
+      --muted:    #64748B;
+      --navy:     #1E3A5F;
+      --navy-dark:#0F2040;
+      --border:   #E2E8F0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      font-size: 17px;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline: 0;
+      z-index: 100;
+      height: 70px;
+      padding: 0 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    /* ── HERO ────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 35% 30%;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(15,32,64,.97) 0%,
+        rgba(15,32,64,.93) 20%,
+        rgba(15,32,64,.72) 42%,
+        rgba(15,32,64,.28) 65%,
+        rgba(15,32,64,.08) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 140px 72px 80px;
+      max-width: 740px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 30px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: rgba(255,255,255,.5);
+    }
+    .hero-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(60px, 8vw, 104px);
+      font-weight: 800;
+      line-height: .92;
+      letter-spacing: -3px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-name span { color: #93C5FD; }
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255,255,255,.62);
+      line-height: 1.85;
+      max-width: 520px;
+      margin-bottom: 52px;
+    }
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 18px 46px;
+      border: 1px solid rgba(255,255,255,.6);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: all .25s;
+    }
+    .hero-btn:hover { background: #fff; color: var(--navy-dark); }
+    .hero-stats {
+      position: absolute;
+      bottom: 56px;
+      right: 72px;
+      display: flex;
+      gap: 52px;
+      z-index: 2;
+    }
+    .h-stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .h-stat-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-top: 4px;
+    }
+
+    /* ── PORTRAIT SECTION ────────────────────────── */
+    .portrait-section {
+      background: var(--card2);
+    }
+    .portrait-inner {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      min-height: 600px;
+    }
+    .portrait-photo {
+      overflow: hidden;
+    }
+    .portrait-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .portrait-copy {
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .portrait-copy .sec-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .portrait-copy .sec-tag::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+      background: var(--border);
+    }
+    .portrait-copy h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+    .portrait-copy p {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 520px;
+    }
+
+    /* ── EXPERIENCE ──────────────────────────────── */
+    .exp-section {
+      padding: 112px 72px;
+      background: var(--bg);
+    }
+    .sec-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .sec-tag::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+      background: var(--border);
+    }
+    .sec-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 72px;
+    }
+
+    .tl {
+      position: relative;
+      max-width: 880px;
+    }
+    .tl::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 172px 1fr;
+      gap: 48px;
+      margin-bottom: 52px;
+      padding-left: 28px;
+      position: relative;
+    }
+    .tl-row::before {
+      content: '';
+      position: absolute;
+      left: -4.5px;
+      top: 9px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--navy);
+      box-shadow: 0 0 14px rgba(30,58,95,.3);
+    }
+    .tl-date {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      padding-top: 2px;
+      line-height: 1.6;
+    }
+    .tl-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .tl-org {
+      font-size: 14px;
+      font-weight: 700;
+      color: #2B5FA8;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+    }
+    .tl-pts { list-style: none; }
+    .tl-pts li {
+      font-size: 17px;
+      font-weight: 400;
+      color: #3D5A80;
+      line-height: 1.8;
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .tl-pts li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* ── PHOTO: MODI ─────────────────────────────── */
+    .photo-modi {
+      position: relative;
+      overflow: hidden;
+      height: 480px;
+    }
+    .photo-modi img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .photo-modi-layer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(15,32,64,.92) 0%,
+        rgba(15,32,64,.2) 100%
+      );
+      display: flex;
+      align-items: center;
+      padding: 0 72px;
+    }
+    .modi-copy { max-width: 460px; }
+    .modi-copy h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -1.5px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .modi-copy p {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,.65);
+      line-height: 1.85;
+    }
+
+    /* ── CREDENTIALS ─────────────────────────────── */
+    .cred-section {
+      padding: 96px 72px;
+      background: var(--card);
+    }
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      max-width: 900px;
+      margin-bottom: 56px;
+    }
+    .cred-item {
+      padding: 32px;
+      background: var(--card);
+    }
+    .cred-yr {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .cred-nm {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .profile-strip {
+      display: flex;
+      gap: 72px;
+      flex-wrap: wrap;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .ps-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .ps-value {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text);
+    }
+
+    /* ── CONTACT ─────────────────────────────────── */
+    .contact-section {
+      padding: 112px 72px;
+      background: var(--navy-dark);
+    }
+    .ct-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(46px, 6vw, 78px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -2.5px;
+      line-height: .9;
+      color: #fff;
+      margin-bottom: 64px;
+    }
+    .ct-title span { color: #93C5FD; }
+    .ct-links { display: flex; flex-direction: column; max-width: 600px; }
+    .ct-row {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .ct-row:last-child { border-bottom: none; }
+    .ct-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(147,197,253,.7);
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .ct-val {
+      font-size: 21px;
+      font-weight: 300;
+      color: #fff;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .ct-val:hover { color: #93C5FD; }
+
+    footer {
+      padding: 28px 72px;
+      background: rgba(0,0,0,.35);
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,.2);
+      letter-spacing: 1px;
+    }
+
+    /* ── HAMBURGER ───────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      transition: all .25s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      inset-inline: 0;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      padding: 16px 0;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 16px 28px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--navy); background: var(--card2); }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-content { padding: 120px 24px 60px; }
+      .hero-eyebrow { font-size: 10px; letter-spacing: 2px; flex-wrap: wrap; }
+      .hero-name { font-size: clamp(52px, 13vw, 80px); }
+      .hero-sub { font-size: 16px; margin-bottom: 36px; }
+      .hero-stats { position: static; padding: 0 24px 48px; flex-wrap: wrap; gap: 32px; z-index: 2; }
+      .portrait-inner { grid-template-columns: 1fr; }
+      .portrait-photo { height: 380px; }
+      .portrait-copy { padding: 48px 24px; }
+      .exp-section, .cred-section, .contact-section { padding: 72px 24px; }
+      .tl-row { grid-template-columns: 1fr; gap: 8px; padding-left: 24px; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .profile-strip { gap: 32px; }
+      .photo-modi-layer { padding: 0 24px; }
+      .ct-title { font-size: clamp(38px, 10vw, 60px); margin-bottom: 40px; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Ziv Agmon</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="menuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#experience" onclick="closeMenu()">Experience</a>
+    <a href="#credentials" onclick="closeMenu()">Credentials</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/whitehouse2.jpg" alt="At the White House with President Trump and PM Netanyahu">
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Attorney · Statesman · Strategic Communicator</div>
+      <h1 class="hero-name">Ziv<br><span>Agmon</span></h1>
+      <p class="hero-sub">
+        Acting Chief of Staff and Chief Spokesman of the Israeli Prime Minister's Office.
+        Two decades of service at the highest levels of law, government, and global diplomacy.
+      </p>
+      <a href="#contact" class="hero-btn">Contact</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="h-stat-num">20+</div>
+        <div class="h-stat-lbl">Years Career</div>
+      </div>
+      <div>
+        <div class="h-stat-num">PM</div>
+        <div class="h-stat-lbl">Chief of Staff</div>
+      </div>
+      <div>
+        <div class="h-stat-num">8200</div>
+        <div class="h-stat-lbl">IDF Intel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTRAIT / PROFILE -->
+  <div class="portrait-section" id="about">
+    <div class="portrait-inner">
+      <div class="portrait-photo">
+        <img src="images/portrait.jpg" alt="Ziv Agmon">
+      </div>
+      <div class="portrait-copy">
+        <div class="sec-tag">Profile</div>
+        <h2>About</h2>
+        <p>
+          Attorney, strategic communications expert, and senior government official
+          with over two decades spanning elite military intelligence, high-profile litigation,
+          and the corridors of Israeli government. Ziv Agmon has served at the highest levels
+          of national leadership, engaging directly with world leaders and shaping Israel's
+          voice on the global stage.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section class="exp-section" id="experience">
+    <div class="sec-tag">Career</div>
+    <h2 class="sec-heading">Experience</h2>
+    <div class="tl">
+
+      <div class="tl-row">
+        <div class="tl-date">Jun 2025<br>May 2026</div>
+        <div>
+          <div class="tl-role">Chief of Staff (Acting) &amp; Spokesman</div>
+          <div class="tl-org">Israeli Prime Minister's Office</div>
+          <ul class="tl-pts">
+            <li>Advisor to the Prime Minister on Communications and Policy</li>
+            <li>Chief Spokesperson for the Prime Minister of Israel</li>
+            <li>Acting Chief of Staff — senior management, budget &amp; operations</li>
+            <li>Direct engagement with world leaders and global influencers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">Oct 2023<br>Oct 2024</div>
+        <div>
+          <div class="tl-role">Deputy Director, Public Diplomacy Directorate</div>
+          <div class="tl-org">Israeli Prime Minister's Office</div>
+          <ul class="tl-pts">
+            <li>Established international communication center for hundreds of global journalists</li>
+            <li>Directed media strategy during the "Iron Sword" war</li>
+            <li>Managed Government Speakers in the national situation room</li>
+            <li>Built the state government communications studio</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">Oct 2005<br>Oct 2023</div>
+        <div>
+          <div class="tl-role">Senior Partner &amp; CEO</div>
+          <div class="tl-org">Agmon &amp; Co., Law Firm · Tel Aviv &amp; Dubai</div>
+          <ul class="tl-pts">
+            <li>CEO and Managing Partner — litigation, foreclosures &amp; international transactions</li>
+            <li>Appointed Senior Court Specialist: liquidator &amp; Acting CEO of companies</li>
+            <li>Crisis management with national &amp; international media for high-profile cases</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">Sep 2023<br>Present</div>
+        <div>
+          <div class="tl-role">Member of Judging Panel</div>
+          <div class="tl-org">Appeal Tribunal — Holocaust Victims Property Law, Ministry of Justice</div>
+          <ul class="tl-pts">
+            <li>Judgment Member for the restitution of Holocaust victims' properties under Israeli law</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">Jul 2012<br>Present</div>
+        <div>
+          <div class="tl-role">Owner &amp; CEO</div>
+          <div class="tl-org">My Path Ltd. — Real Estate Investment, Tel Aviv</div>
+          <ul class="tl-pts">
+            <li>Founder and CEO of a real estate investment company in Israel</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHOTO FEATURE: MODI -->
+  <div class="photo-modi">
+    <img src="images/modi.jpg" alt="Ziv Agmon with Prime Minister Narendra Modi of India">
+    <div class="photo-modi-layer">
+      <div class="modi-copy">
+        <h3>Global<br>Reach</h3>
+        <p>From New Delhi to Washington — engaging with world leaders across the full spectrum of Israel's international relationships.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREDENTIALS -->
+  <section class="cred-section" id="credentials">
+    <div class="sec-tag">Credentials</div>
+    <h2 class="sec-heading">Certifications</h2>
+    <div class="cred-grid">
+      <div class="cred-item">
+        <div class="cred-yr">2008</div>
+        <div class="cred-nm">Member of the Israel Bar — Litigation, Arbitration &amp; Mediation</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-yr">2012</div>
+        <div class="cred-nm">Certified IDF Prosecutor</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-yr">2018</div>
+        <div class="cred-nm">Appointed Specialist Officer of the Courts — Liquidation &amp; Bankruptcy</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-yr">2019</div>
+        <div class="cred-nm">Certified Member, Israel Notary Association</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-yr">2020</div>
+        <div class="cred-nm">FINRA SIE Examination</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-yr">2000–03</div>
+        <div class="cred-nm">IDF Intelligence Unit 8200 · Active Reserves Service</div>
+      </div>
+    </div>
+
+    <div class="profile-strip">
+      <div>
+        <div class="ps-label">Languages</div>
+        <div class="ps-value">English &amp; Hebrew — Native</div>
+      </div>
+      <div>
+        <div class="ps-label">Citizenship</div>
+        <div class="ps-value">Israeli &amp; American — Dual</div>
+      </div>
+      <div>
+        <div class="ps-label">Location</div>
+        <div class="ps-value">Moshav Kfar Netter, Israel</div>
+      </div>
+      <div>
+        <div class="ps-label">Military</div>
+        <div class="ps-value">IDF Unit 8200 · Active Reserves</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <h2 class="ct-title">Get<br>In <span>Touch</span></h2>
+    <div class="ct-links">
+      <div class="ct-row">
+        <div class="ct-lbl">Email</div>
+        <a href="mailto:AgmonLNO@gmail.com" class="ct-val">AgmonLNO@gmail.com</a>
+      </div>
+      <div class="ct-row">
+        <div class="ct-lbl">Phone</div>
+        <a href="tel:+972509040904" class="ct-val">+972-50-9040904</a>
+      </div>
+      <div class="ct-row">
+        <div class="ct-lbl">Location</div>
+        <span class="ct-val">Moshav Kfar Netter, Israel</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Ziv Agmon, Adv.</footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMenu() { mobileMenu.classList.remove('open'); }
+  </script>
+
+</body>
+</html>
